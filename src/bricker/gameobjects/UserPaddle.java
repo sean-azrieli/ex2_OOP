@@ -9,8 +9,8 @@ import java.awt.event.KeyEvent;
 
 public class UserPaddle extends GameObject {
 
-    private static final float MOVEMENT_SPEED = 300;
-    private UserInputListener inputListener;
+    private static final float MOVEMENT_SPEED = 400;
+    private final UserInputListener inputListener;
 
     /**
      * Construct a new GameObject instance.
@@ -20,7 +20,7 @@ public class UserPaddle extends GameObject {
      * @param dimensions    Width and height in window coordinates.
      * @param renderable    The renderable representing the object. Can be null, in which case
      *                      the GameObject will not be rendered.
-     * @param inputListener
+     * @param inputListener listens for left/right arrow key input to move the paddle.
      */
     public UserPaddle(Vector2 topLeftCorner, Vector2 dimensions, Renderable renderable, UserInputListener inputListener) {
         super(topLeftCorner, dimensions, renderable);

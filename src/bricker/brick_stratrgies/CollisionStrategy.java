@@ -4,5 +4,6 @@ import bricker.gameobjects.Brick;
 import danogl.GameObject;
 
 public interface CollisionStrategy {
-    void onCollision(Brick brick, GameObject ball);
+
+    void onCollision(GameObject thisObj, GameObject otherObj);
 }

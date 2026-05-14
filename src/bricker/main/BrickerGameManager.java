@@ -22,6 +22,7 @@ import java.util.Random;
 import static danogl.collisions.Layer.STATIC_OBJECTS;
 
 public class BrickerGameManager extends GameManager {
+    // constants
     private static final Vector2 WINDOW_DIMENSIONS = new Vector2(700, 500);
     private static final int BORDER_SIZE = 5;
     private static final int BALL_SPEED = 350;

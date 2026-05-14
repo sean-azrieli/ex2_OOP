@@ -15,8 +15,6 @@ import java.util.Random;
 public class PuckStrategy extends CollisionStrategyDecorator {
     private static final String PUCK_IMAGE = "assets/mockBall.png";
     private static final String PUCK_SOUND = "assets/blop.wav";
-    private static final int NUM_PUCKS = 2;
-
     private final GameObjectCollection gameObjects;
     private final ImageReader imageReader;
     private final SoundReader soundReader;
@@ -40,9 +38,9 @@ public class PuckStrategy extends CollisionStrategyDecorator {
     public void onCollision(Brick thisObj, GameObject otherObj) {
         super.onCollision(thisObj, otherObj);
         Vector2 brickCenter = thisObj.getCenter();
-        for (int i = 0; i < NUM_PUCKS; i++) {
-            createPuck(brickCenter);
-        }
+        // create 2 pucks
+        createPuck(brickCenter);
+        createPuck(brickCenter);
     }
 
     private void createPuck(Vector2 location) {
@@ -50,11 +48,11 @@ public class PuckStrategy extends CollisionStrategyDecorator {
         Sound collisionSound = soundReader.readSound(PUCK_SOUND);
         Puck puck = new Puck(location, puckDimensions, puckImage, collisionSound,
                 gameObjects, windowHeight);
-        puck.setVelocity(randomUpperHalfVelocity());
+        puck.setVelocity(randomVelocity());
         gameObjects.addGameObject(puck);
     }
 
-    private Vector2 randomUpperHalfVelocity() {
+    private Vector2 randomVelocity() {
         Random random = new Random();
         double angle = random.nextDouble() * Math.PI;
         float velocityX = (float) Math.cos(angle) * ballSpeed;

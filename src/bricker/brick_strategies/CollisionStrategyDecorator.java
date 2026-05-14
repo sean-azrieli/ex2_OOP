@@ -1,5 +1,6 @@
-package bricker.brick_stratrgies;
+package bricker.brick_strategies;
 
+import bricker.gameobjects.Brick;
 import danogl.GameObject;
 
 public abstract class CollisionStrategyDecorator implements CollisionStrategy {
@@ -10,7 +11,7 @@ public abstract class CollisionStrategyDecorator implements CollisionStrategy {
     }
 
     @Override
-    public void onCollision(GameObject thisObj, GameObject otherObj) {
-        wrapped.onCollision( thisObj, otherObj); // always call wrapped first
+    public void onCollision(Brick thisObj, GameObject otherObj) {
+        wrapped.onCollision(thisObj, otherObj);
     }
 }

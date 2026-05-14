@@ -1,6 +1,6 @@
 package bricker.main;
 
-import bricker.brick_stratrgies.BasicCollisionStrategy;
+import bricker.brick_strategies.BasicCollisionStrategy;
 import bricker.gameobjects.Ball;
 import bricker.gameobjects.Brick;
 import bricker.gameobjects.Heart;
@@ -254,7 +254,7 @@ public class BrickerGameManager extends GameManager {
                 GameObject brick =
                         new Brick(position,
                                 new Vector2(brickWidth, 15),
-                                brickImage,1,1, new BasicCollisionStrategy(gameObjects(),brickCount)
+                                brickImage, row, col, new BasicCollisionStrategy(gameObjects(), brickCount)
                         );
                 brickCount.increment();
                 gameObjects().addGameObject(brick,STATIC_OBJECTS);
